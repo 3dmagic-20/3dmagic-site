@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://YOURUSERNAME.github.io/3dmagic-site/sitemap.xml
+Sitemap: https://3dmagic-20.github.io/3dmagic-site/sitemap.xml
