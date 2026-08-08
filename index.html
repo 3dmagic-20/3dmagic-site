@@ -8,7 +8,7 @@
   Open Graph, Twitter card, JSON-LD, sitemap.xml) all use this exact
   placeholder string:
 
-      https://YOURUSERNAME.github.io/3dmagic-site
+      https://3dmagic-20.github.io/3dmagic-site
 
   Once you know your final GitHub Pages URL, do a single "Find & Replace
   All" for that exact string across TWO files only:
@@ -28,8 +28,8 @@
 <meta property="og:site_name" content="3DMAGIC">
 <meta property="og:title" content="3DMAGIC | Game Ready 3D Fantasy Characters">
 <meta property="og:description" content="Game-ready, rigged, low-poly fantasy characters by 3D artist Alireza Mohammadi (3DMAGIC) — PBR textured, built in Blender, available on CGTrader.">
-<meta property="og:url" content="https://YOURUSERNAME.github.io/3dmagic-site/">
-<meta property="og:image" content="https://YOURUSERNAME.github.io/3dmagic-site/images/dark-knight.jpg">
+<meta property="og:url" content="https://3dmagic-20.github.io/3dmagic-site/">
+<meta property="og:image" content="https://3dmagic-20.github.io/3dmagic-site/images/dark-knight.jpg">
 <meta property="og:image:width" content="1600">
 <meta property="og:image:height" content="900">
 
@@ -37,7 +37,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="3DMAGIC | Game Ready 3D Fantasy Characters">
 <meta name="twitter:description" content="Game-ready, rigged, low-poly fantasy characters by 3D artist Alireza Mohammadi (3DMAGIC) — PBR textured, built in Blender, available on CGTrader.">
-<meta name="twitter:image" content="https://YOURUSERNAME.github.io/3dmagic-site/images/dark-knight.jpg">
+<meta name="twitter:image" content="https://3dmagic-20.github.io/3dmagic-site/images/dark-knight.jpg">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -206,12 +206,11 @@
   .t-item p{color:var(--text-dim);font-size:15px;}
 
   .work{padding:110px 0;}
-  .work-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:26px;}
-  @media(max-width:760px){.work-grid{grid-template-columns:1fr;}}
+  .work-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:26px;}
   .work-card{
     position:relative;border-radius:var(--radius);overflow:hidden;
     border:1px solid var(--line);background:var(--bg-card);
-    aspect-ratio:4/5;
+    aspect-ratio:16/9;
     transition:transform .35s ease,box-shadow .35s ease,border-color .35s ease;
   }
   .work-card:hover{transform:translateY(-6px);border-color:transparent;box-shadow:0 30px 60px -25px rgba(91,60,200,.55);}
@@ -219,13 +218,13 @@
   .work-card:hover img{transform:scale(1.05);}
   .work-card::after{
     content:"";position:absolute;inset:0;
-    background:linear-gradient(0deg, rgba(6,5,12,.92) 0%, rgba(6,5,12,.15) 42%, transparent 62%);
+    background:linear-gradient(0deg, rgba(6,5,12,.95) 0%, rgba(6,5,12,.35) 32%, transparent 58%);
   }
   .work-info{
     position:absolute;left:0;right:0;bottom:0;z-index:2;
-    padding:24px;display:flex;align-items:flex-end;justify-content:space-between;gap:14px;
+    padding:18px 20px;display:flex;align-items:flex-end;justify-content:space-between;gap:14px;
   }
-  .work-info h3{font-size:21px;margin-bottom:4px;}
+  .work-info h3{font-size:19px;margin-bottom:2px;}
   .work-info span{font-size:13px;color:var(--text-dim);}
   .work-info .buy-btn{
     flex-shrink:0;padding:10px 18px;border-radius:999px;background:var(--grad);color:#08070f;
@@ -476,19 +475,19 @@
   "@graph": [
     {
       "@type": "WebSite",
-      "@id": "https://YOURUSERNAME.github.io/3dmagic-site/#website",
-      "url": "https://YOURUSERNAME.github.io/3dmagic-site/",
+      "@id": "https://3dmagic-20.github.io/3dmagic-site/#website",
+      "url": "https://3dmagic-20.github.io/3dmagic-site/",
       "name": "3DMAGIC",
       "description": "Portfolio and shop of 3D character artist Alireza Mohammadi — game-ready fantasy characters on CGTrader.",
-      "publisher": { "@id": "https://YOURUSERNAME.github.io/3dmagic-site/#person" }
+      "publisher": { "@id": "https://3dmagic-20.github.io/3dmagic-site/#person" }
     },
     {
       "@type": "Person",
-      "@id": "https://YOURUSERNAME.github.io/3dmagic-site/#person",
+      "@id": "https://3dmagic-20.github.io/3dmagic-site/#person",
       "name": "Alireza Mohammadi",
       "alternateName": "3DMAGIC",
       "jobTitle": "3D Character Artist",
-      "url": "https://YOURUSERNAME.github.io/3dmagic-site/",
+      "url": "https://3dmagic-20.github.io/3dmagic-site/",
       "email": "mailto:alirezamohammadi15000@gmail.com",
       "sameAs": [
         "https://www.cgtrader.com/designers/3dmagic24"
@@ -499,17 +498,17 @@
       "@type": "ItemList",
       "name": "3DMAGIC Character Models",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Dark Knight", "url": "https://www.cgtrader.com/3d-models/character/fantasy-character/dark-knight-b67490f4-49aa-48ff-8b21-b0e23bda5147", "image": "https://YOURUSERNAME.github.io/3dmagic-site/images/dark-knight.jpg" },
-        { "@type": "ListItem", "position": 2, "name": "Medieval Fantasy Knight", "url": "https://www.cgtrader.com/3d-models/character/fantasy-character/medieval-fantasy-knight-ef9f0072-f471-4e4b-9f84-e794076589db", "image": "https://YOURUSERNAME.github.io/3dmagic-site/images/medieval-fantasy-knight.jpg" },
-        { "@type": "ListItem", "position": 3, "name": "Medieval Knight", "url": "https://www.cgtrader.com/3d-models/character/fantasy-character/medieval-fantasy-knight-71aca2ea-062e-41b7-b3bc-1a707e0b44c0", "image": "https://YOURUSERNAME.github.io/3dmagic-site/images/medieval-knight.jpg" },
-        { "@type": "ListItem", "position": 4, "name": "Templar Knight", "url": "https://www.cgtrader.com/3d-models/character/fantasy-character/crimson-templar-knight-fantasy-warrior", "image": "https://YOURUSERNAME.github.io/3dmagic-site/images/templar-knight.jpg" },
-        { "@type": "ListItem", "position": 5, "name": "Golden Knight", "url": "https://www.cgtrader.com/3d-models/character/fantasy-character/golden-knight-game-ready-character", "image": "https://YOURUSERNAME.github.io/3dmagic-site/images/golden-knight.jpg" },
-        { "@type": "ListItem", "position": 6, "name": "Ice Knight", "url": "https://www.cgtrader.com/3d-models/character/fantasy-character/glorious-knight-fantasy-3d-character", "image": "https://YOURUSERNAME.github.io/3dmagic-site/images/ice-knight.jpg" },
-        { "@type": "ListItem", "position": 7, "name": "Desert Warrior", "url": "https://www.cgtrader.com/3d-models/character/fantasy-character/fantasy-desert-warrior", "image": "https://YOURUSERNAME.github.io/3dmagic-site/images/desert-warrior.jpg" },
-        { "@type": "ListItem", "position": 8, "name": "Great Warrior", "url": "https://www.cgtrader.com/3d-models/character/fantasy-character/fantasy-knight-character-pack", "image": "https://YOURUSERNAME.github.io/3dmagic-site/images/great-warrior.jpg" },
-        { "@type": "ListItem", "position": 9, "name": "Woman Warrior", "url": "https://www.cgtrader.com/3d-models/character/fantasy-character/female-knight-warrior-a6fd5e8d-6b2d-406a-97ea-404831b591f2", "image": "https://YOURUSERNAME.github.io/3dmagic-site/images/woman-warrior.jpg" },
-        { "@type": "ListItem", "position": 10, "name": "Ninja Warrior", "url": "https://www.cgtrader.com/3d-models/character/fantasy-character/ninja-shadow", "image": "https://YOURUSERNAME.github.io/3dmagic-site/images/ninja-warrior.jpg" },
-        { "@type": "ListItem", "position": 11, "name": "Nature Guardian", "url": "https://www.cgtrader.com/3d-models/character/fantasy-character/nature-guardian-character", "image": "https://YOURUSERNAME.github.io/3dmagic-site/images/nature-guardian.jpg" }
+        { "@type": "ListItem", "position": 1, "name": "Dark Knight", "url": "https://www.cgtrader.com/3d-models/character/fantasy-character/dark-knight-b67490f4-49aa-48ff-8b21-b0e23bda5147", "image": "https://3dmagic-20.github.io/3dmagic-site/images/dark-knight.jpg" },
+        { "@type": "ListItem", "position": 2, "name": "Medieval Fantasy Knight", "url": "https://www.cgtrader.com/3d-models/character/fantasy-character/medieval-fantasy-knight-ef9f0072-f471-4e4b-9f84-e794076589db", "image": "https://3dmagic-20.github.io/3dmagic-site/images/medieval-fantasy-knight.jpg" },
+        { "@type": "ListItem", "position": 3, "name": "Medieval Knight", "url": "https://www.cgtrader.com/3d-models/character/fantasy-character/medieval-fantasy-knight-71aca2ea-062e-41b7-b3bc-1a707e0b44c0", "image": "https://3dmagic-20.github.io/3dmagic-site/images/medieval-knight.jpg" },
+        { "@type": "ListItem", "position": 4, "name": "Templar Knight", "url": "https://www.cgtrader.com/3d-models/character/fantasy-character/crimson-templar-knight-fantasy-warrior", "image": "https://3dmagic-20.github.io/3dmagic-site/images/templar-knight.jpg" },
+        { "@type": "ListItem", "position": 5, "name": "Golden Knight", "url": "https://www.cgtrader.com/3d-models/character/fantasy-character/golden-knight-game-ready-character", "image": "https://3dmagic-20.github.io/3dmagic-site/images/golden-knight.jpg" },
+        { "@type": "ListItem", "position": 6, "name": "Ice Knight", "url": "https://www.cgtrader.com/3d-models/character/fantasy-character/glorious-knight-fantasy-3d-character", "image": "https://3dmagic-20.github.io/3dmagic-site/images/ice-knight.jpg" },
+        { "@type": "ListItem", "position": 7, "name": "Desert Warrior", "url": "https://www.cgtrader.com/3d-models/character/fantasy-character/fantasy-desert-warrior", "image": "https://3dmagic-20.github.io/3dmagic-site/images/desert-warrior.jpg" },
+        { "@type": "ListItem", "position": 8, "name": "Great Warrior", "url": "https://www.cgtrader.com/3d-models/character/fantasy-character/fantasy-knight-character-pack", "image": "https://3dmagic-20.github.io/3dmagic-site/images/great-warrior.jpg" },
+        { "@type": "ListItem", "position": 9, "name": "Woman Warrior", "url": "https://www.cgtrader.com/3d-models/character/fantasy-character/female-knight-warrior-a6fd5e8d-6b2d-406a-97ea-404831b591f2", "image": "https://3dmagic-20.github.io/3dmagic-site/images/woman-warrior.jpg" },
+        { "@type": "ListItem", "position": 10, "name": "Ninja Warrior", "url": "https://www.cgtrader.com/3d-models/character/fantasy-character/ninja-shadow", "image": "https://3dmagic-20.github.io/3dmagic-site/images/ninja-warrior.jpg" },
+        { "@type": "ListItem", "position": 11, "name": "Nature Guardian", "url": "https://www.cgtrader.com/3d-models/character/fantasy-character/nature-guardian-character", "image": "https://3dmagic-20.github.io/3dmagic-site/images/nature-guardian.jpg" }
       ]
     }
   ]
