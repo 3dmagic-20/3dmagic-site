@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<!--
+  SITE_URL CONFIG — read this first
+  ----------------------------------
+  This is a static site (no build step). Absolute URLs below (canonical,
+  Open Graph, Twitter card, JSON-LD, sitemap.xml) all use this exact
+  placeholder string:
+
+      https://YOURUSERNAME.github.io/3dmagic-site
+
+  Once you know your final GitHub Pages URL, do a single "Find & Replace
+  All" for that exact string across TWO files only:
+    1) index.html
+    2) sitemap.xml
+  That's the only place you ever need to touch it.
+-->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="index, follow">
+<title>3DMAGIC | Game Ready 3D Fantasy Characters by Alireza Mohammadi</title>
+<meta name="description" content="3DMAGIC is the portfolio and shop of Alireza Mohammadi, a 3D character artist building game-ready, rigged, low-poly fantasy characters in Blender with PBR texturing — available to buy on CGTrader.">
+<link rel="canonical" href="https://YOURUSERNAME.github.io/3dmagic-site/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="3DMAGIC">
+<meta property="og:title" content="3DMAGIC | Game Ready 3D Fantasy Characters">
+<meta property="og:description" content="Game-ready, rigged, low-poly fantasy characters by 3D artist Alireza Mohammadi (3DMAGIC) — PBR textured, built in Blender, available on CGTrader.">
+<meta property="og:url" content="https://YOURUSERNAME.github.io/3dmagic-site/">
+<meta property="og:image" content="https://YOURUSERNAME.github.io/3dmagic-site/images/dark-knight.jpg">
+<meta property="og:image:width" content="1600">
+<meta property="og:image:height" content="900">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="3DMAGIC | Game Ready 3D Fantasy Characters">
+<meta name="twitter:description" content="Game-ready, rigged, low-poly fantasy characters by 3D artist Alireza Mohammadi (3DMAGIC) — PBR textured, built in Blender, available on CGTrader.">
+<meta name="twitter:image" content="https://YOURUSERNAME.github.io/3dmagic-site/images/dark-knight.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#08070f;
+    --bg-alt:#0f0c1c;
+    --bg-card:#151027;
+    --line:#292149;
+    --purple:#9b6bff;
+    --blue:#5b8dff;
+    --pink:#ff5fa8;
+    --grad:linear-gradient(95deg,var(--blue),var(--purple) 55%,var(--pink));
+    --text:#f4f0fc;
+    --text-dim:#a99fc9;
+    --radius:18px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Inter',sans-serif;
+    line-height:1.75;
+    overflow-x:hidden;
+  }
+  body::before{
+    content:"";
+    position:fixed;inset:0;
+    pointer-events:none;
+    background-image:radial-gradient(rgba(255,255,255,.02) 1px,transparent 1px);
+    background-size:3px 3px;
+    z-index:1;
+  }
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+  section{position:relative;z-index:2;}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 24px;}
+  .eyebrow{
+    font-size:13px;letter-spacing:.09em;color:var(--pink);
+    font-weight:700;text-transform:uppercase;
+    display:flex;align-items:center;gap:10px;margin-bottom:14px;
+    font-family:'Space Grotesk',sans-serif;
+  }
+  .eyebrow::before{content:"";width:22px;height:2px;background:var(--grad);display:inline-block;}
+  h1,h2,h3{font-weight:700;line-height:1.15;font-family:'Space Grotesk',sans-serif;}
+  h2{font-size:clamp(28px,4vw,44px);margin-bottom:10px;}
+  .grad-text{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .section-sub{color:var(--text-dim);font-size:16px;max-width:580px;margin-bottom:44px;}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:13px 26px;border-radius:999px;font-weight:600;font-size:15px;
+    border:1.5px solid var(--purple);color:var(--text);
+    transition:all .25s ease;cursor:pointer;background:rgba(255,255,255,.03);
+  }
+  .btn:hover{background:rgba(155,107,255,.16);border-color:var(--pink);}
+  .btn.solid{background:var(--grad);color:#08070f;border:none;}
+  .btn.solid:hover{filter:brightness(1.15);transform:translateY(-1px);}
+
+  header{
+    position:fixed;top:0;right:0;left:0;z-index:50;
+    background:rgba(8,7,15,.82);backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--line);
+  }
+  nav{
+    max-width:1200px;margin:0 auto;padding:16px 24px;
+    display:flex;align-items:center;justify-content:space-between;
+  }
+  .logo{font-weight:900;font-size:20px;letter-spacing:.02em;font-family:'Space Grotesk',sans-serif;}
+  .logo span{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .nav-links{display:flex;gap:32px;font-size:15px;font-weight:500;}
+  .nav-links a{color:var(--text-dim);transition:color .2s;}
+  .nav-links a:hover{color:var(--pink);}
+  .nav-cta{display:none;}
+  @media(min-width:720px){.nav-cta{display:inline-flex;}}
+  .burger{display:none;background:none;border:1px solid var(--line);border-radius:8px;width:40px;height:40px;color:var(--text);font-size:18px;}
+  @media(max-width:719px){.nav-links{display:none;}.burger{display:block;}}
+
+  .hero{
+    min-height:96vh;display:flex;align-items:center;
+    padding:130px 0 60px;
+    background:
+      radial-gradient(ellipse 65% 55% at 88% 10%, rgba(91,141,255,.20), transparent 60%),
+      radial-gradient(ellipse 55% 50% at 5% 95%, rgba(255,95,168,.16), transparent 60%),
+      radial-gradient(ellipse 40% 40% at 50% 50%, rgba(155,107,255,.10), transparent 70%);
+  }
+  .hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;}
+  @media(max-width:900px){.hero .wrap{grid-template-columns:1fr;}}
+  .hero h1{font-size:clamp(38px,6vw,64px);margin-bottom:20px;}
+  .hero p.lead{font-size:18px;color:var(--text-dim);max-width:490px;margin-bottom:34px;}
+  .hero-actions{display:flex;gap:14px;flex-wrap:wrap;}
+  .hero-stats{display:flex;gap:36px;margin-top:48px;flex-wrap:wrap;}
+  .hero-stats div b{display:block;font-size:26px;font-weight:900;font-family:'Space Grotesk',sans-serif;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .hero-stats div span{font-size:13px;color:var(--text-dim);}
+
+  .skip-link{
+    position:absolute;left:-9999px;top:0;z-index:100;
+    background:var(--purple);color:#08070f;padding:12px 20px;border-radius:0 0 10px 0;font-weight:700;
+  }
+  .skip-link:focus{left:0;}
+  a:focus-visible,button:focus-visible{outline:2px solid var(--pink);outline-offset:2px;}
+
+  .cube-stage{
+    position:relative;height:480px;display:flex;align-items:center;justify-content:center;
+    perspective:1200px;
+  }
+  .cube-glow{
+    position:absolute;width:460px;height:460px;border-radius:50%;
+    background:radial-gradient(circle, rgba(155,107,255,.4), rgba(91,141,255,.16) 45%, transparent 72%);
+    filter:blur(14px);
+  }
+  .clay-slab{
+    position:absolute;width:400px;height:400px;border-radius:44px;
+    background:linear-gradient(150deg,#241d46 0%,#150f2c 55%,#0a0716 100%);
+    box-shadow:
+      0 60px 120px -30px rgba(91,60,200,.55),
+      inset 0 1px 0 rgba(255,255,255,.06),
+      inset 0 0 70px rgba(155,107,255,.07);
+    transform:rotate(8deg);
+    border:1px solid rgba(155,107,255,.25);
+  }
+  .clay-slab::before{
+    content:"";position:absolute;inset:0;border-radius:44px;
+    background:linear-gradient(135deg, rgba(91,141,255,.16), transparent 40%, rgba(255,95,168,.12) 100%);
+  }
+  .cube{
+    width:210px;height:210px;position:relative;transform-style:preserve-3d;
+    animation:spin 18s linear infinite;
+    margin-top:-34px;
+  }
+  .cube div{
+    position:absolute;width:210px;height:210px;
+    border:1.5px solid rgba(255,255,255,.6);
+  }
+  .cube .f1{transform:translateZ(105px);background:linear-gradient(140deg, rgba(91,141,255,.30), rgba(91,141,255,.06));border-color:#7ea6ff;box-shadow:0 0 30px rgba(91,141,255,.45), inset 0 0 30px rgba(91,141,255,.15);}
+  .cube .f2{transform:rotateY(180deg) translateZ(105px);background:linear-gradient(140deg, rgba(91,141,255,.20), rgba(91,141,255,.04));border-color:rgba(91,141,255,.6);box-shadow:0 0 24px rgba(91,141,255,.3), inset 0 0 24px rgba(91,141,255,.1);}
+  .cube .f3{transform:rotateY(90deg) translateZ(105px);background:linear-gradient(140deg, rgba(255,95,168,.28), rgba(255,95,168,.05));border-color:#ff8fc0;box-shadow:0 0 30px rgba(255,95,168,.45), inset 0 0 30px rgba(255,95,168,.15);}
+  .cube .f4{transform:rotateY(-90deg) translateZ(105px);background:linear-gradient(140deg, rgba(255,95,168,.18), rgba(255,95,168,.04));border-color:rgba(255,95,168,.55);box-shadow:0 0 24px rgba(255,95,168,.3), inset 0 0 24px rgba(255,95,168,.1);}
+  .cube .f5{transform:rotateX(90deg) translateZ(105px);background:linear-gradient(140deg, rgba(155,107,255,.32), rgba(155,107,255,.07));border-color:#c4a8ff;box-shadow:0 0 30px rgba(155,107,255,.5), inset 0 0 30px rgba(155,107,255,.18);}
+  .cube .f6{transform:rotateX(-90deg) translateZ(105px);background:linear-gradient(140deg, rgba(155,107,255,.16), rgba(155,107,255,.03));border-color:rgba(155,107,255,.5);box-shadow:0 0 24px rgba(155,107,255,.28), inset 0 0 24px rgba(155,107,255,.1);}
+  @keyframes spin{from{transform:rotateX(-20deg) rotateY(0);}to{transform:rotateX(-20deg) rotateY(360deg);}}
+  @media (prefers-reduced-motion:reduce){.cube{animation:none;}}
+  @media(max-width:900px){.cube-stage{height:300px;zoom:.65;}}
+
+  .about{padding:110px 0;background:var(--bg-alt);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .about .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:70px;}
+  @media(max-width:860px){.about .wrap{grid-template-columns:1fr;}}
+  .about-text p{color:var(--text-dim);margin-bottom:16px;font-size:16px;}
+  .meta-row{display:flex;flex-wrap:wrap;gap:10px 22px;margin:18px 0 24px;font-size:14px;color:var(--text-dim);}
+  .meta-row a{color:var(--blue);}
+  .skills{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px;}
+  .skill-tag{
+    padding:8px 16px;border-radius:999px;font-size:13px;font-weight:500;
+    background:var(--bg-card);border:1px solid var(--line);color:var(--text-dim);
+  }
+  .timeline{border-left:2px solid var(--line);padding-left:28px;}
+  .t-item{position:relative;padding-bottom:36px;}
+  .t-item:last-child{padding-bottom:0;}
+  .t-item::before{
+    content:"";position:absolute;left:-33px;top:4px;width:10px;height:10px;
+    border-radius:50%;background:var(--grad);
+  }
+  .t-item .t-date{font-size:13px;color:var(--pink);font-weight:600;margin-bottom:4px;}
+  .t-item h3{font-size:18px;margin-bottom:4px;}
+  .t-item p{color:var(--text-dim);font-size:15px;}
+
+  .work{padding:110px 0;}
+  .work-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:26px;}
+  @media(max-width:760px){.work-grid{grid-template-columns:1fr;}}
+  .work-card{
+    position:relative;border-radius:var(--radius);overflow:hidden;
+    border:1px solid var(--line);background:var(--bg-card);
+    aspect-ratio:4/5;
+    transition:transform .35s ease,box-shadow .35s ease,border-color .35s ease;
+  }
+  .work-card:hover{transform:translateY(-6px);border-color:transparent;box-shadow:0 30px 60px -25px rgba(91,60,200,.55);}
+  .work-card img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease;}
+  .work-card:hover img{transform:scale(1.05);}
+  .work-card::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(0deg, rgba(6,5,12,.92) 0%, rgba(6,5,12,.15) 42%, transparent 62%);
+  }
+  .work-info{
+    position:absolute;left:0;right:0;bottom:0;z-index:2;
+    padding:24px;display:flex;align-items:flex-end;justify-content:space-between;gap:14px;
+  }
+  .work-info h3{font-size:21px;margin-bottom:4px;}
+  .work-info span{font-size:13px;color:var(--text-dim);}
+  .work-info .buy-btn{
+    flex-shrink:0;padding:10px 18px;border-radius:999px;background:var(--grad);color:#08070f;
+    font-size:13px;font-weight:700;display:inline-flex;align-items:center;gap:6px;white-space:nowrap;
+    box-shadow:0 8px 24px -8px rgba(255,95,168,.55);
+  }
+  .work-info .buy-btn:hover{filter:brightness(1.1);}
+  .work-badge{
+    position:absolute;top:18px;left:18px;z-index:2;
+    font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;
+    padding:6px 12px;border-radius:999px;background:rgba(8,7,15,.55);
+    border:1px solid rgba(255,255,255,.14);backdrop-filter:blur(6px);color:var(--text-dim);
+  }
+
+  .contact{padding:110px 0;text-align:center;}
+  .contact h2{margin-bottom:16px;}
+  .contact p{color:var(--text-dim);max-width:480px;margin:0 auto 34px;}
+  .contact-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+  footer{padding:36px 24px;border-top:1px solid var(--line);text-align:center;color:var(--text-dim);font-size:13px;}
+  footer a{color:var(--blue);}
+
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease;}
+  .reveal.in{opacity:1;transform:none;}
+</style>
+</head>
+<body>
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<header>
+  <nav aria-label="Primary">
+    <div class="logo">3d<span>magic</span></div>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#work">Characters</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <a href="#contact" class="btn solid nav-cta">Hire me</a>
+    <button class="burger" aria-label="Toggle navigation menu" aria-expanded="false" onclick="const n=document.querySelector('.nav-links');const open=n.classList.toggle('open');this.setAttribute('aria-expanded',open);n.style.cssText=open?'position:fixed;top:64px;right:0;left:0;background:#0f0c1c;flex-direction:column;padding:20px 24px;display:flex;gap:18px;border-bottom:1px solid #292149;':'';">☰</button>
+  </nav>
+</header>
+
+<main id="main">
+<section class="hero" id="top">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow">3D Character Artist</div>
+      <h1>Alireza Mohammadi<br><span class="grad-text">3dmagic</span></h1>
+      <p class="lead">
+        Self-taught 3D character artist with 4 years of hands-on practice and 2 years of freelance experience. I sculpt and build game-ready, rigged, low-poly fantasy characters using Blender, Substance Painter and Marmoset Toolbag — published under the brand 3DMAGIC on CGTrader and BlenderKit.
+      </p>
+      <div class="hero-actions">
+        <a href="#work" class="btn solid">View characters</a>
+        <a href="https://www.cgtrader.com/designers/3dmagic24" target="_blank" rel="noopener noreferrer" class="btn">CGTrader profile ↗</a>
+      </div>
+      <div class="hero-stats">
+        <div><b>4 years</b><span>hands-on practice</span></div>
+        <div><b>11+</b><span>characters published</span></div>
+        <div><b>2 markets</b><span>CGTrader & BlenderKit</span></div>
+      </div>
+    </div>
+    <div class="cube-stage" aria-hidden="true">
+      <div class="cube-glow"></div>
+      <div class="clay-slab"></div>
+      <div class="cube">
+        <div class="f1"></div><div class="f2"></div><div class="f3"></div>
+        <div class="f4"></div><div class="f5"></div><div class="f6"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="about reveal" id="about">
+  <div class="wrap">
+    <div class="about-text">
+      <div class="eyebrow">About me</div>
+      <h2>Resume</h2>
+      <p>I'm a self-taught 3D character artist with 4 years of continuous practice and 2 years of professional freelance work, focused on fantasy characters, hard-surface armor and PBR texturing. I own the full pipeline end to end — from sculpt to final render.</p>
+      <p>I publish my characters under the brand "3DMAGIC" on CGTrader and BlenderKit, and use AI-assisted tools to speed up production. Open to freelance and full-time remote roles with game development studios.</p>
+      <div class="meta-row">
+        <span>📍 Remote — Iran</span>
+        <a href="mailto:alirezamohammadi15000@gmail.com">alirezamohammadi15000@gmail.com</a>
+        <a href="https://www.cgtrader.com/designers/3dmagic24" target="_blank" rel="noopener noreferrer">cgtrader.com/designers/3dmagic24 ↗</a>
+      </div>
+      <div class="skills">
+        <span class="skill-tag">Blender</span>
+        <span class="skill-tag">Substance Painter</span>
+        <span class="skill-tag">Marmoset Toolbag</span>
+        <span class="skill-tag">Character Sculpting</span>
+        <span class="skill-tag">Hard Surface Armor</span>
+        <span class="skill-tag">PBR Texturing</span>
+        <span class="skill-tag">Rigging & Animation</span>
+        <span class="skill-tag">AI-Assisted Workflows</span>
+      </div>
+    </div>
+    <div class="timeline">
+      <div class="t-item">
+        <div class="t-date">2024 – Present</div>
+        <h3>Freelance 3D Character Artist — 3dmagic</h3>
+        <p>Sculpting and publishing fantasy characters on CGTrader and BlenderKit; full pipeline from Blender modeling to Substance Painter texturing and Marmoset Toolbag rendering.</p>
+      </div>
+      <div class="t-item">
+        <div class="t-date">Earlier</div>
+        <h3>Self-taught character modeling practice</h3>
+        <p>4 years of continuous practice in sculpting, modeling and texturing before moving into professional freelancing.</p>
+      </div>
+      <div class="t-item">
+        <div class="t-date">Education</div>
+        <h3>B.Sc. in Computer Engineering (Information Technology)</h3>
+        <p>Completed.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="work reveal" id="work">
+  <div class="wrap">
+    <div class="eyebrow">Portfolio & Shop</div>
+    <h2>Character models</h2>
+    <p class="section-sub">Every character below is a real, purchasable model — published on CGTrader under the 3DMAGIC brand. Game-ready, rigged and PBR textured. Click a card to view it and buy.</p>
+    <div class="work-grid">
+
+      <a class="work-card" href="https://www.cgtrader.com/3d-models/character/fantasy-character/dark-knight-b67490f4-49aa-48ff-8b21-b0e23bda5147" target="_blank" rel="noopener noreferrer">
+        <span class="work-badge">Fantasy</span>
+        <img src="images/dark-knight.jpg" alt="Dark Knight — game-ready rigged fantasy 3D character model" width="1600" height="900" loading="lazy">
+        <div class="work-info">
+          <div><h3>Dark Knight</h3><span>Rigged · Game-ready</span></div>
+          <span class="buy-btn">View on CGTrader ↗</span>
+        </div>
+      </a>
+
+      <a class="work-card" href="https://www.cgtrader.com/3d-models/character/fantasy-character/medieval-fantasy-knight-ef9f0072-f471-4e4b-9f84-e794076589db" target="_blank" rel="noopener noreferrer">
+        <span class="work-badge">Fantasy</span>
+        <img src="images/medieval-fantasy-knight.jpg" alt="Medieval Fantasy Knight — game-ready rigged low-poly 3D character" width="1600" height="900" loading="lazy">
+        <div class="work-info">
+          <div><h3>Medieval Fantasy Knight</h3><span>Rigged · Game-ready</span></div>
+          <span class="buy-btn">View on CGTrader ↗</span>
+        </div>
+      </a>
+
+      <a class="work-card" href="https://www.cgtrader.com/3d-models/character/fantasy-character/medieval-fantasy-knight-71aca2ea-062e-41b7-b3bc-1a707e0b44c0" target="_blank" rel="noopener noreferrer">
+        <span class="work-badge">Fantasy</span>
+        <img src="images/medieval-knight.jpg" alt="Medieval Knight — game-ready rigged low-poly 3D character" width="1600" height="900" loading="lazy">
+        <div class="work-info">
+          <div><h3>Medieval Knight</h3><span>Rigged · Game-ready</span></div>
+          <span class="buy-btn">View on CGTrader ↗</span>
+        </div>
+      </a>
+
+      <a class="work-card" href="https://www.cgtrader.com/3d-models/character/fantasy-character/crimson-templar-knight-fantasy-warrior" target="_blank" rel="noopener noreferrer">
+        <span class="work-badge">Fantasy</span>
+        <img src="images/templar-knight.jpg" alt="Templar Knight — game-ready rigged fantasy warrior 3D character" width="1600" height="900" loading="lazy">
+        <div class="work-info">
+          <div><h3>Templar Knight</h3><span>Rigged · Game-ready</span></div>
+          <span class="buy-btn">View on CGTrader ↗</span>
+        </div>
+      </a>
+
+      <a class="work-card" href="https://www.cgtrader.com/3d-models/character/fantasy-character/golden-knight-game-ready-character" target="_blank" rel="noopener noreferrer">
+        <span class="work-badge">Fantasy</span>
+        <img src="images/golden-knight.jpg" alt="Golden Knight — game-ready rigged fantasy 3D character" width="1600" height="899" loading="lazy">
+        <div class="work-info">
+          <div><h3>Golden Knight</h3><span>Rigged · Game-ready</span></div>
+          <span class="buy-btn">View on CGTrader ↗</span>
+        </div>
+      </a>
+
+      <a class="work-card" href="https://www.cgtrader.com/3d-models/character/fantasy-character/glorious-knight-fantasy-3d-character" target="_blank" rel="noopener noreferrer">
+        <span class="work-badge">Fantasy</span>
+        <img src="images/ice-knight.jpg" alt="Ice Knight — game-ready rigged fantasy 3D character" width="1600" height="900" loading="lazy">
+        <div class="work-info">
+          <div><h3>Ice Knight</h3><span>Rigged · Game-ready</span></div>
+          <span class="buy-btn">View on CGTrader ↗</span>
+        </div>
+      </a>
+
+      <a class="work-card" href="https://www.cgtrader.com/3d-models/character/fantasy-character/fantasy-desert-warrior" target="_blank" rel="noopener noreferrer">
+        <span class="work-badge">Fantasy</span>
+        <img src="images/desert-warrior.jpg" alt="Desert Warrior — game-ready rigged fantasy 3D character" width="1600" height="900" loading="lazy">
+        <div class="work-info">
+          <div><h3>Desert Warrior</h3><span>Rigged · Game-ready</span></div>
+          <span class="buy-btn">View on CGTrader ↗</span>
+        </div>
+      </a>
+
+      <a class="work-card" href="https://www.cgtrader.com/3d-models/character/fantasy-character/fantasy-knight-character-pack" target="_blank" rel="noopener noreferrer">
+        <span class="work-badge">Fantasy</span>
+        <img src="images/great-warrior.jpg" alt="Great Warrior — game-ready rigged fantasy 3D character" width="1600" height="900" loading="lazy">
+        <div class="work-info">
+          <div><h3>Great Warrior</h3><span>Rigged · Game-ready</span></div>
+          <span class="buy-btn">View on CGTrader ↗</span>
+        </div>
+      </a>
+
+      <a class="work-card" href="https://www.cgtrader.com/3d-models/character/fantasy-character/female-knight-warrior-a6fd5e8d-6b2d-406a-97ea-404831b591f2" target="_blank" rel="noopener noreferrer">
+        <span class="work-badge">Fantasy</span>
+        <img src="images/woman-warrior.jpg" alt="Woman Warrior — game-ready rigged fantasy female 3D character" width="1600" height="900" loading="lazy">
+        <div class="work-info">
+          <div><h3>Woman Warrior</h3><span>Rigged · Game-ready</span></div>
+          <span class="buy-btn">View on CGTrader ↗</span>
+        </div>
+      </a>
+
+      <a class="work-card" href="https://www.cgtrader.com/3d-models/character/fantasy-character/ninja-shadow" target="_blank" rel="noopener noreferrer">
+        <span class="work-badge">Stealth</span>
+        <img src="images/ninja-warrior.jpg" alt="Ninja Warrior — game-ready rigged stealth 3D character" width="1600" height="900" loading="lazy">
+        <div class="work-info">
+          <div><h3>Ninja Warrior</h3><span>Rigged · Game-ready</span></div>
+          <span class="buy-btn">View on CGTrader ↗</span>
+        </div>
+      </a>
+
+      <a class="work-card" href="https://www.cgtrader.com/3d-models/character/fantasy-character/nature-guardian-character" target="_blank" rel="noopener noreferrer">
+        <span class="work-badge">Fantasy</span>
+        <img src="images/nature-guardian.jpg" alt="Nature Guardian — game-ready rigged fantasy 3D character" width="1600" height="899" loading="lazy">
+        <div class="work-info">
+          <div><h3>Nature Guardian</h3><span>Rigged · Game-ready</span></div>
+          <span class="buy-btn">View on CGTrader ↗</span>
+        </div>
+      </a>
+
+    </div>
+    <div style="margin-top:36px;text-align:center;">
+      <a href="https://www.cgtrader.com/designers/3dmagic24" target="_blank" rel="noopener noreferrer" class="btn">View all 3D Models on CGTrader ↗</a>
+    </div>
+  </div>
+</section>
+
+<section class="contact reveal" id="contact">
+  <div class="wrap">
+    <div class="eyebrow" style="justify-content:center;">Let's work together</div>
+    <h2>Have a project in mind?</h2>
+    <p>For freelance work, studio collaborations, or any question about a character, reach out.</p>
+    <div class="contact-actions">
+      <a href="mailto:alirezamohammadi15000@gmail.com" class="btn solid">Send an email</a>
+      <a href="https://www.cgtrader.com/designers/3dmagic24" target="_blank" rel="noopener noreferrer" class="btn">CGTrader profile</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  © <span id="year"></span> Alireza Mohammadi (3DMAGIC) · All characters sold via <a href="https://www.cgtrader.com/designers/3dmagic24" target="_blank" rel="noopener noreferrer">CGTrader</a>.
+</footer>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://YOURUSERNAME.github.io/3dmagic-site/#website",
+      "url": "https://YOURUSERNAME.github.io/3dmagic-site/",
+      "name": "3DMAGIC",
+      "description": "Portfolio and shop of 3D character artist Alireza Mohammadi — game-ready fantasy characters on CGTrader.",
+      "publisher": { "@id": "https://YOURUSERNAME.github.io/3dmagic-site/#person" }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://YOURUSERNAME.github.io/3dmagic-site/#person",
+      "name": "Alireza Mohammadi",
+      "alternateName": "3DMAGIC",
+      "jobTitle": "3D Character Artist",
+      "url": "https://YOURUSERNAME.github.io/3dmagic-site/",
+      "email": "mailto:alirezamohammadi15000@gmail.com",
+      "sameAs": [
+        "https://www.cgtrader.com/designers/3dmagic24"
+      ],
+      "knowsAbout": ["3D Modeling", "Character Sculpting", "PBR Texturing", "Blender", "Substance Painter", "Marmoset Toolbag"]
+    },
+    {
+      "@type": "ItemList",
+      "name": "3DMAGIC Character Models",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Dark Knight", "url": "https://www.cgtrader.com/3d-models/character/fantasy-character/dark-knight-b67490f4-49aa-48ff-8b21-b0e23bda5147", "image": "https://YOURUSERNAME.github.io/3dmagic-site/images/dark-knight.jpg" },
+        { "@type": "ListItem", "position": 2, "name": "Medieval Fantasy Knight", "url": "https://www.cgtrader.com/3d-models/character/fantasy-character/medieval-fantasy-knight-ef9f0072-f471-4e4b-9f84-e794076589db", "image": "https://YOURUSERNAME.github.io/3dmagic-site/images/medieval-fantasy-knight.jpg" },
+        { "@type": "ListItem", "position": 3, "name": "Medieval Knight", "url": "https://www.cgtrader.com/3d-models/character/fantasy-character/medieval-fantasy-knight-71aca2ea-062e-41b7-b3bc-1a707e0b44c0", "image": "https://YOURUSERNAME.github.io/3dmagic-site/images/medieval-knight.jpg" },
+        { "@type": "ListItem", "position": 4, "name": "Templar Knight", "url": "https://www.cgtrader.com/3d-models/character/fantasy-character/crimson-templar-knight-fantasy-warrior", "image": "https://YOURUSERNAME.github.io/3dmagic-site/images/templar-knight.jpg" },
+        { "@type": "ListItem", "position": 5, "name": "Golden Knight", "url": "https://www.cgtrader.com/3d-models/character/fantasy-character/golden-knight-game-ready-character", "image": "https://YOURUSERNAME.github.io/3dmagic-site/images/golden-knight.jpg" },
+        { "@type": "ListItem", "position": 6, "name": "Ice Knight", "url": "https://www.cgtrader.com/3d-models/character/fantasy-character/glorious-knight-fantasy-3d-character", "image": "https://YOURUSERNAME.github.io/3dmagic-site/images/ice-knight.jpg" },
+        { "@type": "ListItem", "position": 7, "name": "Desert Warrior", "url": "https://www.cgtrader.com/3d-models/character/fantasy-character/fantasy-desert-warrior", "image": "https://YOURUSERNAME.github.io/3dmagic-site/images/desert-warrior.jpg" },
+        { "@type": "ListItem", "position": 8, "name": "Great Warrior", "url": "https://www.cgtrader.com/3d-models/character/fantasy-character/fantasy-knight-character-pack", "image": "https://YOURUSERNAME.github.io/3dmagic-site/images/great-warrior.jpg" },
+        { "@type": "ListItem", "position": 9, "name": "Woman Warrior", "url": "https://www.cgtrader.com/3d-models/character/fantasy-character/female-knight-warrior-a6fd5e8d-6b2d-406a-97ea-404831b591f2", "image": "https://YOURUSERNAME.github.io/3dmagic-site/images/woman-warrior.jpg" },
+        { "@type": "ListItem", "position": 10, "name": "Ninja Warrior", "url": "https://www.cgtrader.com/3d-models/character/fantasy-character/ninja-shadow", "image": "https://YOURUSERNAME.github.io/3dmagic-site/images/ninja-warrior.jpg" },
+        { "@type": "ListItem", "position": 11, "name": "Nature Guardian", "url": "https://www.cgtrader.com/3d-models/character/fantasy-character/nature-guardian-character", "image": "https://YOURUSERNAME.github.io/3dmagic-site/images/nature-guardian.jpg" }
+      ]
+    }
+  ]
+}
+</script>
+
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+const io = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); } });
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
